@@ -38,7 +38,6 @@ function allModifierHolder(){
     pickaxeModifier()
     moonBlasterModifier()
 }
-
 function pickaxeModifier(){
     if(clickUpgrades.pickaxes.quantity >= 1){
         cheeseCount+= clickUpgrades.pickaxes.modifier * clickUpgrades.pickaxes.quantity
@@ -50,24 +49,20 @@ function moonBlasterModifier(){
         cheeseCount+= clickUpgrades.moonBlasters.modifier * clickUpgrades.moonBlasters.quantity
     }
 }
-function laserGunModifier(){
-    for(automaticUpgrades.laserGun.quantity >= 1; automaticUpgrades.laserGun.modifier += 10*5; automaticUpgrades.laserGun.modifier++){
+function automaticModifiers(){
+    for(let key in automaticUpgrades){
+        let automine = automaticUpgrades[key]
+        if(automine.quantity >= 1){
+        cheeseCount+= automine.modifier * automine.quantity
         console.log(automaticUpgrades.laserGun.modifier)
-        return
     }
+    }
+    updateCheese();
+   
 }
 
-// Need to rewrite nuclear blast modifier and laser gun modifier to use loops instead of if statements so that they continue to run.
-function nuclearBlastModifier(){
-    for(automaticUpgrades.nuclearBlasts.quantity >= 1; automaticUpgrades.nuclearBlasts.modifier += 10*5; automaticUpgrades.nuclearBlasts.modifier++){
-        console.log(automaticUpgrades.nuclearBlasts.modifier)
-        return
-    }
-}
-
-function cheesePerSecond(){
-    let cheesePerSecond = automaticUpgrades.nuclearBlasts.modifier += automaticUpgrades.laserGun.modifier
-    document.getElementById('cheese-second').innerHTML = cheesePerSecond.toString();
+function autoUpgrades(){
+    setInterval(automaticModifiers, 3000);
 }
 
 function pickaxePrice(){
@@ -87,6 +82,7 @@ function moonBlasterPrice(){
 function laserGunPrice(){
     if(automaticUpgrades.laserGun.quantity >= 1){
         automaticUpgrades.laserGun.price += 50*2
+        console.log(automaticUpgrades.laserGun.price)
         document.getElementById('lasergun-price').innerHTML = automaticUpgrades.laserGun.price.toString();
     }
 }
@@ -114,8 +110,8 @@ function buyMoonBlaster(){
         alert("You don't have enough cheese to buy that!")
     }else{
     clickUpgrades.moonBlasters.quantity++
-    moonBlasterPrice()
     cheeseCount-= clickUpgrades.moonBlasters.price
+    moonBlasterPrice()
     document.getElementById("moonblaster-quantity").innerHTML = clickUpgrades.moonBlasters.quantity.toString();
     updateCheese();
     }
@@ -126,28 +122,24 @@ function buyLaserGun(){
         alert("You don't have enough cheese to buy that!")
     }else{
     automaticUpgrades.laserGun.quantity++
-    cheesePerSecond();
     cheeseCount-= automaticUpgrades.laserGun.price
     laserGunPrice();
-    laserGunModifier();
     document.getElementById("lasergun-quantity").innerHTML = automaticUpgrades.laserGun.quantity.toString();
     updateCheese();
     }
 }
 
 function buyNuclearBlast(){
-    
     if(cheeseCount < automaticUpgrades.nuclearBlasts.price){
         alert("You don't have enough cheese to buy that!")
     }else{
     automaticUpgrades.nuclearBlasts.quantity++
-    cheesePerSecond();
     cheeseCount-= automaticUpgrades.nuclearBlasts.price
     nuclearBlastPrice();
-    nuclearBlastModifier();
     document.getElementById("nuclearblast-quantity").innerHTML = automaticUpgrades.nuclearBlasts.quantity.toString();
     updateCheese();
     }
 }
 
+autoUpgrades();
 mineCheese();
