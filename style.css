@@ -1,0 +1,12 @@
+body { min-height: 100vh; display: flex; flex-direction: column; }
+header{ } 
+main{flex-grow: 1;} 
+footer{ }
+
+
+.stylus-image{
+    background-image: url("moon.jpg");
+    background-position: center;
+    height: 75vh;
+    width: 200px;
+}
