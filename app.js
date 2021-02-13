@@ -51,15 +51,17 @@ function moonBlasterModifier(){
     }
 }
 function laserGunModifier(){
-    if(automaticUpgrades.laserGun.quantity >= 1){
-        automaticUpgrades.laserGun.modifier * automaticUpgrades.laserGun.quantity
+    for(automaticUpgrades.laserGun.quantity >= 1; automaticUpgrades.laserGun.modifier += 10*5; automaticUpgrades.laserGun.modifier++){
+        console.log(automaticUpgrades.laserGun.modifier)
+        return
     }
 }
 
 // Need to rewrite nuclear blast modifier and laser gun modifier to use loops instead of if statements so that they continue to run.
 function nuclearBlastModifier(){
-    if(automaticUpgrades.nuclearBlasts.quantity >= 1){
-         automaticUpgrades.nuclearBlasts.modifier * automaticUpgrades.nuclearBlasts.quantity
+    for(automaticUpgrades.nuclearBlasts.quantity >= 1; automaticUpgrades.nuclearBlasts.modifier += 10*5; automaticUpgrades.nuclearBlasts.modifier++){
+        console.log(automaticUpgrades.nuclearBlasts.modifier)
+        return
     }
 }
 
@@ -88,7 +90,6 @@ function laserGunPrice(){
         document.getElementById('lasergun-price').innerHTML = automaticUpgrades.laserGun.price.toString();
     }
 }
-
 function nuclearBlastPrice(){
     if(automaticUpgrades.nuclearBlasts.quantity >= 1){
         automaticUpgrades.nuclearBlasts.price += 100*2
@@ -121,26 +122,29 @@ function buyMoonBlaster(){
 }
 
 function buyLaserGun(){
-    if(cheeseCount <= automaticUpgrades.laserGun.price * automaticUpgrades.laserGun.quantity){
+    if(cheeseCount < automaticUpgrades.laserGun.price){
         alert("You don't have enough cheese to buy that!")
     }else{
     automaticUpgrades.laserGun.quantity++
-    laserGunPrice();
     cheesePerSecond();
     cheeseCount-= automaticUpgrades.laserGun.price
+    laserGunPrice();
+    laserGunModifier();
     document.getElementById("lasergun-quantity").innerHTML = automaticUpgrades.laserGun.quantity.toString();
     updateCheese();
     }
 }
 
 function buyNuclearBlast(){
+    
     if(cheeseCount < automaticUpgrades.nuclearBlasts.price){
         alert("You don't have enough cheese to buy that!")
     }else{
     automaticUpgrades.nuclearBlasts.quantity++
-    nuclearBlastPrice();
     cheesePerSecond();
     cheeseCount-= automaticUpgrades.nuclearBlasts.price
+    nuclearBlastPrice();
+    nuclearBlastModifier();
     document.getElementById("nuclearblast-quantity").innerHTML = automaticUpgrades.nuclearBlasts.quantity.toString();
     updateCheese();
     }
