@@ -7,40 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body class="bg-light">
       <header>
           <div class="container-fluid text-center justify-content-center">
-              <div class="row bg-danger">
+              <div class="row bg-primary">
                   <div class="col-12 mt-3 mb-3 text-white">
-                      <h1>MOON MINER</h1>
+                      <h1>MOON <i class="fa fa-moon-o mr-3 ml-2" aria-hidden="true"></i><span class="text-warning">MINER</span></h1>
                   </div>
               </div>
           </div>
       </header>
       <main>
-          <div class="container-fluid text-center justify-content-center">
-              <div class="row">
-                  <div class="col-12">Cheese Mined <span id="cheese-mined"></span></div>
-                  <div class="col-12">Pickaxes <span id="pickaxe-quantity">0</span></div>
-                  <div class="col-12">Blasters <span id="moonblaster-quantity">0</span></div>
-                  <div class="col-12">Laserguns <span id="lasergun-quantity">0</span></div>
-                  <div class="col-12">Nuclear Blasts <span id="nuclearblast-quantity">0</span></div>
-                  <div class="col-12 mt-5">
-                      <img src="moon.jpg" class="rounded shadow-lg" width="200px" onclick="mineCheese()">
-                    <div class="col-12">
-                        <button class="btn btn-danger" onclick="buyPickaxe()">Buy Pickaxe <span id="pickaxe-price">10</span></button>
-                        <button class="btn btn-danger" onclick="buyMoonBlaster()">Buy Moon Blaster <span id="moonblaster-price">20</span></button>
-                        <button class="btn btn-danger" onclick="buyLaserGun()">Buy Laser Gun <span id="lasergun-price">100</span</button>
-                        <button class="btn btn-danger" onclick="buyNuclearBlast()">Buy Nuclear Blast <span id="nuclear-price">250</span></button>
+          <div class="container-fluid bg-light">
+              <div class="row justify-content-around text-center align-items-center mt-5">
+                  <div class="col-lg-3">
+                  <div class="card rounded shadow-lg pd-5 mt-3">
+                  <div class="m-2"><h6>Pickaxes <i class="fa fa-magic ml-1 mr-2 text-warning" aria-hidden="true"></i><span id="pickaxe-quantity">0</span></h6></div>
+                  <div class="m-2"><h6><span class="text-warning">Blasters </span><i class="fa fa-hand-spock-o ml-1 mr-2" aria-hidden="true"></i><span id="moonblaster-quantity">0</span></h6></div>
+                  <div class="m-2"><h6>Pickaxe Modifier <i class="fa fa-magic ml-1 mr-2 text-warning" aria-hidden="true"></i><span id="pickaxe-quantity">0</span></h6></div>
+                 <div class="m-2"><h6><span class="text-warning">Blasters Modifier </span><i class="fa fa-hand-spock-o ml-1 mr-2" aria-hidden="true"></i><span id="moonblaster-quantity">0</span></h6></div>
+                </div>
+                 </div>
+                 <div class="col-lg-3">
+                    <div class="card bg-primary text-white rounded shadow-lg pd-5 mt-3">
+                    <div class="m-2"><h6 class="text-warning">Cheese Mined <span id="cheese-mined"></span></h6></div>
+                  </div>
+                   </div>
+                 <div class="col-lg-3">
+                    <div class="card rounded shadow-lg pd-5 mt-3">
+                    <div class="m-2"><h6><span class="text-primary">Laser Guns </span><i class="fa fa-ship ml-1 mr-2" aria-hidden="true"></i><span id="lasergun-quantity">0</span></h6></div>
+                    <div class="m-2"><h6>Nuclear Blasts <i class="fa fa-bomb ml-1 mr-2 text-primary" aria-hidden="true"></i><span id="nuclearblast-quantity">0</span></h6></div>
+                    <div class="m-2"><h6><span class="text-primary">Laserguns Modifier </span><i class="fa fa-ship ml-1 mr-2" aria-hidden="true"></i><span id="lasergun-quantity">0</span></h6></div>
+                    <div class="m-2"><h6>Nuclear Blasts Modifier <i class="fa fa-bomb ml-1 mr-2 text-primary" aria-hidden="true"></i><span id="nuclearblast-quantity">0</span></h6></div>
+                  </div>
+                   </div>
+                </div>
+                <div class="row mt-3"></div>
+                <div class="row text-center justify-content-around">
+                    <div class="col-lg-3 mt-5 mb-5">
+                        <button class="btn btn-warning text-dark w-100 shadow-lg" onclick="buyPickaxe()">Pickaxe <span id="pickaxe-price">10</span></button>
+                        <button class="btn btn-warning text-dark mt-2 w-100 shadow-lg" onclick="buyMoonBlaster()">Moon Blaster <span id="moonblaster-price">20</span></button>
                     </div>
+                  <div class="col-lg-3">
+                      <img src="moon.jpg" class="rounded-moon shadow-lg transparent" width="200px" onclick="mineCheese()">
+                    </div>
+                   <div class="col-lg-3 mt-5 mb-5">
+                        <button class="btn btn-success mr-1 w-100 shadow-lg" onclick="buyLaserGun()">Laser Gun <span id="lasergun-price">100</span</button>
+                        <button class="btn btn-success mr-1 mt-2 w-100 shadow-lg" onclick="buyNuclearBlast()">Nuclear Blast <span id="nuclear-price">250</span></button>
+                    </div>
+                    
+                </div>
+                <div class="row mt-5"></div>
+              <div class="row mt-3 mb-5 text-center justify-content-center">
+                  <div class="col-lg-3">
+                      <button class="btn btn-danger w-100 text-white" onclick="cheeseTimeout()">DOUBLE CHEESE <span id="timeout"></span> CLICKS</button>
                   </div>
               </div>
           </div>
       </main>
-      <footer></footer>
+      <footer>
+          <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+              <a class="navbar-brand text-white" href="#">Moon <i class="fa fa-moon-o mr-3 ml-2" aria-hidden="true"></i><span class="text-warning">MINER</span></a>
+          </nav>
+      </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

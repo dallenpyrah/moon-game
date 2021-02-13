@@ -1,4 +1,5 @@
-let cheeseCount = 0
+let cheeseCount = -1
+let clickCount = 61
 let automaticUpgrades = {
     laserGun:{
         price: 100,
@@ -26,6 +27,8 @@ let clickUpgrades = {
 }
 function mineCheese(){
     cheeseCount++
+    clickCount--
+    document.getElementById('timeout').innerHTML = clickCount.toString()
     allModifierHolder()
     updateCheese();
 }
@@ -140,6 +143,16 @@ function buyNuclearBlast(){
     updateCheese();
     }
 }
+
+function cheeseTimeout(){
+    if(clickCount == 0){
+    cheeseCount *= 2
+    updateCheese();}else{
+        console.log(clickCount)
+    }
+    clickCount = 60
+}
+
 
 autoUpgrades();
 mineCheese();

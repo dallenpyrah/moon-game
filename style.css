@@ -3,10 +3,43 @@ header{ }
 main{flex-grow: 1;} 
 footer{ }
 
+body{
+    font-family: 'Bowlby One SC', cursive!important;
+}
 
 .stylus-image{
     background-image: url("moon.jpg");
     background-position: center;
     height: 75vh;
     width: 200px;
+}
+
+.transparent{
+    background-color: transparent;
+}
+
+.bg-primary{
+    background-color: rgb(0, 0, 0)!important;
+}
+
+.bg-light{
+    background-color: rgb(165, 147, 182)!important;
+}
+
+.btn-danger{
+    background-color: rgb(0, 0, 0)!important;
+    border-color: rgb(12, 11, 11)!important;
+}
+
+.btn-success{
+    background-color: rgb(24, 104, 252)!important;
+    border-color: rgb(165, 147, 182)!important;
+}
+
+.text-dark{
+    color: black!important;
+}
+
+.rounded-moon {
+    border-radius: 2rem!important;
 }
