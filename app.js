@@ -27,6 +27,7 @@ let clickUpgrades = {
 }
 function mineCheese(){
     cheeseCount++
+    cheeseTimeout();
     clickCount--
     document.getElementById('timeout').innerHTML = clickCount.toString()
     allModifierHolder()
@@ -145,12 +146,14 @@ function buyNuclearBlast(){
 }
 
 function cheeseTimeout(){
-    if(clickCount == 0){
+    if(clickCount <= 0){
     cheeseCount *= 2
-    updateCheese();}else{
+    clickCount = 60
+    document.getElementById('timeout').innerHTML = clickCount.toString()
+    updateCheese();}
+    else{
         console.log(clickCount)
     }
-    clickCount = 60
 }
 
 
