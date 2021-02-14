@@ -43,21 +43,30 @@ function allModifierHolder(){
     moonBlasterModifier()
 }
 function pickaxeModifier(){
+    let pickaxeModifier = clickUpgrades.pickaxes.modifier * clickUpgrades.pickaxes.quantity
     if(clickUpgrades.pickaxes.quantity >= 1){
-        cheeseCount+= clickUpgrades.pickaxes.modifier * clickUpgrades.pickaxes.quantity
+        cheeseCount+= pickaxeModifier
+        document.getElementById('pickaxe-modifier').innerHTML = pickaxeModifier.toString()
     }
 }
 
 function moonBlasterModifier(){
+    let moonBlasterModifier = clickUpgrades.moonBlasters.modifier * clickUpgrades.moonBlasters.quantity
     if(clickUpgrades.moonBlasters.quantity >= 1){
-        cheeseCount+= clickUpgrades.moonBlasters.modifier * clickUpgrades.moonBlasters.quantity
+        cheeseCount+= moonBlasterModifier
+        document.getElementById('moonblaster-modifier').innerHTML = moonBlasterModifier.toString()
     }
 }
 function automaticModifiers(){
     for(let key in automaticUpgrades){
         let automine = automaticUpgrades[key]
+        let laserGunModifier = automaticUpgrades.laserGun.modifier * automaticUpgrades.laserGun.quantity
+        let nuclearBlastModifier = automaticUpgrades.nuclearBlasts.modifier * automaticUpgrades.nuclearBlasts.quantity
+        let automaticModifiers = laserGunModifier + nuclearBlastModifier
         if(automine.quantity >= 1){
-        cheeseCount+= automine.modifier * automine.quantity
+        cheeseCount+= automaticModifiers
+        document.getElementById('lasergun-modifier').innerHTML = laserGunModifier.toString()
+        document.getElementById('nuclearblast-modifier').innerHTML = nuclearBlastModifier.toString()
         console.log(automaticUpgrades.laserGun.modifier)
     }
     }
